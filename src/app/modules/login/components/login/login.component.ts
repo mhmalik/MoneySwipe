@@ -7,19 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild("divlogo") logoDiv: ElementRef;
 
-  logo: any = "assets/Bogmærke_mørkblå.svg";
-
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() { }
 
-  btnSign() {
-    // this.router.navigate(['/register/OTP']);
-   }
-
-  btnCreate() {
-    this.router.navigate(['/register']);
-  }
 }

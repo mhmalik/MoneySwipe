@@ -1,4 +1,4 @@
-<div class='register-container'>
+<!-- <div class='register-container'>
   <span class="mb-1" style="font-weight: bold">Enter your mobile phone number</span>
   <input type='text' prefix="+45 " mask="00 00 00 00" placeholder="+45 11 22 33 44" [(ngModel)]="mobileNo">
   <span class="mt-1" style="font-weight: 100; font-size: 10px">you will receive an activation code by text
@@ -10,4 +10,22 @@
   </div>
 </div>
 
-<ngx-loading [show]="loading" [config]="config"></ngx-loading>
+<ngx-loading [show]="loading" [config]="config"></ngx-loading> -->
+<div fxFlex class="register-container">
+  <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex>
+
+    <!-- <header>test</header> -->
+
+    <div fxFlex fxLayout="column" fxLayoutAlign="start start" fxFill class="pl-3 pr-3 mt-4">
+      <div class="mb-1 ml-1" style="font-weight: bold">Enter your mobile phone number</div>
+      <input type='text' prefix="+45 " mask="00 00 00 00" placeholder="+45 11 22 33 44" [(ngModel)]="mobileNo">
+      <div class="mt-1 ml-1" style="font-weight: 100; font-size: 10px">you will receive an activation code by text
+        message</div>
+    </div>
+
+    <div fxFlex=40px fxLayout fxFill class="m-p" >
+      <button class="btn btn-block btn-send" style="font-weight: bold" (click)="register()"
+        [disabled]="mobileNo.length < 8">Send</button>
+    </div>
+  </div>
+</div>
