@@ -1,0 +1,13 @@
+<div class='register-container'>
+  <span class="mb-1" style="font-weight: bold">Enter your mobile phone number</span>
+  <input type='text' prefix="+45 " mask="00 00 00 00" placeholder="+45 11 22 33 44" [(ngModel)]="mobileNo">
+  <span class="mt-1" style="font-weight: 100; font-size: 10px">you will receive an activation code by text
+    message</span>
+
+  <div style="display: flex; justify-content: center; align-items: flex-end; flex: 1;">
+    <button class="btn btn-block btn-send" style="font-weight: bold" (click)="register()"
+      [disabled]="mobileNo.length < 8">Send</button>
+  </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="config"></ngx-loading>
