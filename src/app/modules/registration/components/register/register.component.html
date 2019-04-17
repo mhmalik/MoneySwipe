@@ -9,8 +9,9 @@
       [disabled]="mobileNo.length < 8">Send</button>
   </div>
 </div>
+-->
+<ngx-loading [show]="loading" [config]="config"></ngx-loading>
 
-<ngx-loading [show]="loading" [config]="config"></ngx-loading> -->
 <div fxFlex class="register-container">
   <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex>
 
@@ -23,7 +24,7 @@
         message</div>
     </div>
 
-    <div fxFlex=40px fxLayout fxFill class="m-p" >
+    <div fxFlex=40px fxLayout fxFill class="m-p">
       <button class="btn btn-block btn-send" style="font-weight: bold" (click)="register()"
         [disabled]="mobileNo.length < 8">Send</button>
     </div>

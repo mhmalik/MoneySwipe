@@ -53,7 +53,18 @@
 }
 body,
 html {
-  height: 100vh;
+  height: 100%;
+}
+
+#container {
+  display: flex;
+  /* displays flex-items (children) inline */
+  flex-direction: column;
+  /* stacks them vertically */
+  height: 100%;
+  /* needs to take the parents height, alternative: body {display: flex} */
+  background-color: #f9fafc;
+  padding: 20px 0;
 }
 
 .btn:focus,
@@ -65,10 +76,6 @@ html {
 .menu-container {
   background-color: #f9fafc;
   padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  min-height: 100%;
-  flex-direction: column;
 }
 
 .menu {
