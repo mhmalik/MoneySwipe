@@ -10,17 +10,53 @@
   </div>
 </div>
 -->
-<ngx-loading [show]="loading" [config]="config"></ngx-loading>
 
-<div fxFlex class="register-container">
+
+<!-- <div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="container">
+    <div></div>
+    <div class="two"></div>
+    <div></div>
+</div> -->
+
+<app-loader [loading]="loading"></app-loader>
+
+<div id="container" fxLayout="column" fxFill>
+  <header fxLayout fxLayoutAlign="space-between center" class="shadow" style="height: 50px;">
+    <div fxLayoutAlign="center center" style="background-color: rgb(198, 198, 198, 0); width: 50px;">
+      <i class="material-icons" style="font-size: 2.50rem" (click)="back()">chevron_left</i>
+    </div>
+    <div fxLayoutAlign="center center" style="height: 50px">
+      <img src="./assets/Logo.svg" style="width:48%">
+    </div>
+    <div fxLayoutAlign="center center" style="background-color: rgb(198, 198, 198, 0); width: 50px;">
+      <i class="material-icons">
+        help_outline
+      </i>
+    </div>
+  </header>
   <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex>
 
-    <!-- <header>test</header> -->
+    <div fxFlex fxLayout="column" fxLayoutAlign="start start" fxFill class="pl-3 pr-3 mt-2">
+      <div style="font-weight: bold">Enter your mobile phone number</div>
+      <!-- <input type='text' prefix="+45 " mask="00 00 00 00" placeholder="+45 11 22 33 44" [(ngModel)]="mobileNo"
+              pattern="[0-9]"> -->
 
-    <div fxFlex fxLayout="column" fxLayoutAlign="start start" fxFill class="pl-3 pr-3 mt-4">
-      <div class="mb-1 ml-1" style="font-weight: bold">Enter your mobile phone number</div>
-      <input type='text' prefix="+45 " mask="00 00 00 00" placeholder="+45 11 22 33 44" [(ngModel)]="mobileNo">
-      <div class="mt-1 ml-1" style="font-weight: 100; font-size: 10px">you will receive an activation code by text
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <span matPrefix>+45 &nbsp;</span>
+          <input type="tel" matInput placeholder="Telephone" mask="00 00 00 00 00" [(ngModel)]="mobileNo"
+            name="mobile number">
+        </mat-form-field>
+      </form>
+
+      <div style="font-weight: 100; font-size: 10px">you will receive an activation code by text
         message</div>
     </div>
 
@@ -29,4 +65,5 @@
         [disabled]="mobileNo.length < 8">Send</button>
     </div>
   </div>
+
 </div>

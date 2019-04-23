@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { routedComponents, LoginRoutingModule } from './login-routing.module';
+import { routedComponents, DashboardRoutingModule } from './dashboard-routing';
 import { ReactiveFormsModule, FormsModule } from '../../../../node_modules/@angular/forms';
 import { CoreModule } from '../core';
 import { SharedModule } from '../shared/shared.module';
@@ -10,7 +10,7 @@ import { NgxMaskModule } from 'ngx-mask';
 @NgModule({
     imports: [
         CommonModule,
-        LoginRoutingModule,
+        DashboardRoutingModule,
         ReactiveFormsModule,
         FormsModule,
         CoreModule,
@@ -22,4 +22,4 @@ import { NgxMaskModule } from 'ngx-mask';
     declarations: [routedComponents]
 })
 
-export class LoginModule { }
+export class DashboardModule { }

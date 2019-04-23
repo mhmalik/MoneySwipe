@@ -1,19 +1,79 @@
-<div class='register-container'>
-    <span class="mb-1" style="font-weight: bold">Enter your email address:</span>
-    <input type='text' placeholder="enter your email address">
+<app-loader [loading]="loading"></app-loader>
+
+<div id="container" fxLayout="column" fxFill>
+  <header fxLayout fxLayoutAlign="space-between center" class="shadow" style="height: 50px;">
+    <div fxLayoutAlign="center center" style="background-color: rgb(198, 198, 198, 0); width: 50px;">
+      <!-- <i class="material-icons" style="font-size: 2.50rem" (click)="back()">chevron_left</i> -->
+    </div>
+    <div fxLayoutAlign="center center" style="height: 50px">
+      <img src="./assets/Logo.svg" style="width:48%">
+    </div>
+    <div fxLayoutAlign="center center" style="background-color: rgb(198, 198, 198, 0); width: 50px;">
+      <i class="material-icons">
+        help_outline
+      </i>
+    </div>
+  </header>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" fxFlex fxLayout="column">
+    <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex>
+      <div fxFlex fxLayout="column" fxLayoutAlign="start start" fxFill class="pl-3 pr-3 mt-3">
+        <div class="form-group">
+          <span class="mb-1" style="font-weight: bold">Full Name:</span>
+          <input type='text' placeholder="enter your full name" formControlName="name" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="mb-1" style="font-weight: bold">Email address:</span>
+          <input type='text' placeholder="xyz@gmail.com" formControlName="email" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <span class="mb-1" style="font-weight: bold">Date of Birth:</span>
+          <input type='tel' mask="d0/M0/0000" placeholder="DD/MM/YYYY" formControlName="dob" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+          <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+            <div *ngIf="f.dob.errors.required">Date of birth is required</div>
+            <div *ngIf="f.dob.errors.minlength">complete date of birth required</div>
+          </div>
+        </div>
+
+        <span class="mt-3" style="font-weight: 200; background: #E8E8E6; padding: 25px; border-radius: .3rem;">Please
+          enter
+          your Name, DOB & Email
+          exactly as on your
+          social security card (sygesikringsbevis)</span>
+      </div>
+    </div>
+    <div fxFlex=40px fxLayout fxFill class="m-p">
+      <button class="btn btn-block btn-send" style="font-weight: bold" type="submit"
+        [disabled]="loading">Submit</button>
+    </div>
+  </form>
+</div>
+<!-- <div class='register-container'>
+
   <span class="mb-1" style="font-weight: bold">Enter your full name:</span>
   <input type='text' placeholder="enter your full name">
   <span class="mb-1" style="font-weight: bold">Enter your DOB:</span>
-  <input mask="d0/M0/0000" placeholder="DOB" placeholder="DD/MM/YYYY">
+  <input type='text' mask="d0/M0/0000" placeholder="DOB" placeholder="DD/MM/YYYY">
   <span class="mt-3" style="font-weight: 200; background: #E8E8E6; padding: 25px; border-radius: .3rem;">Please enter
     your name & CPR number
     exactly as on your
     social security card (sygesikringsbevis)</span>
 
-  <div style="    display: flex;
+  <div style="display: flex;
   justify-content: center;
   align-items: flex-end;
   flex: 1;">
-    <button class="btn btn-block btn-send" style="font-weight: bold">Send</button>
+    <button class="btn btn-block btn-send" style="font-weight: bold">Submit</button>
   </div>
-</div>
+</div> -->

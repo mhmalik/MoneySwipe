@@ -2,18 +2,48 @@
   background-color: #f9fafc;
   height: 100vh;
 }
-input {
-  height: 45px;
-  outline: none;
-  border: none;
-  border-radius: 0.3rem;
-  width: 100%;
-}
+// input {
+//   height: 45px;
+//   outline: none;
+//   border: none;
+//   border-radius: 0.3rem;
+//   width: 100%;
+// }
 .btn-send {
   color: #3070fe;
   background-color: #fff;
 }
-.m-p {
-  margin: 15px;
-  padding: 0px 15px;
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+div.container
+{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+div.container > div
+{
+    flex: 1 1 5em;
+    margin-left: 10px;
+    height:50px;
+    background-color: blue;
+}
+
+div.container > div.two
+{
+    flex:2 2 calc(10em + 10px); /** 10px is the missing margin of the missing box */
+}
+
+div.container > div.three
+{
+    flex:3 3 calc(15em + 20px); /** 20px is the missing margin of the two missing boxes */
 }

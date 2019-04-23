@@ -1,0 +1,26 @@
+<app-loader [loading]="loading"></app-loader>
+
+<div id="container" fxLayout="column" fxFill>
+  <header fxLayout fxLayoutAlign="space-between center" class="shadow pl-3 pr-3" style="height: 100px;">
+    <div fxLayoutAlign="center center">
+      <!-- <i class="material-icons" style="font-size: 2.50rem" (click)="back()">chevron_left</i> -->
+      <img src="./assets/user.png" class="rounded-circle shadow" alt="Cinque Terre" style="width: 50px; height: 50px;">
+      <div style="margin-left: 10px;font-weight: lighter; font-size: 1.5rem;">Haseeb</div>
+    </div>
+
+    <div fxLayoutAlign="center center" style="border-radius: 1.5rem;">
+      <i class="material-icons" style="font-size: 2rem; color: #3070fe;">
+        subject
+      </i>
+    </div>
+  </header>
+
+  <div class="shadow m-3 p-3" fxLayout="column" fxLayoutAlign="space-between center" style="border-radius: 0.3rem">
+    <div style="font-weight: lighter; font-size: 1.2rem;">Available <strong style="color: #3070fe">Balance</strong>
+    </div>
+    <div style="color: #3070fe; font-weight: bold">
+      <span style="font-size:16px">$</span> <span style="font-size: 2.5rem;"> 15,879</span>
+    </div>
+  </div>
+
+</div>

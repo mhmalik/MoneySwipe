@@ -18,7 +18,6 @@ export class MenuComponent implements OnInit {
   }
 
   btnSign() {
-    // this.router.navigate(['/register/OTP']);
+    this.router.navigate(['/login']);
    }
-
 }

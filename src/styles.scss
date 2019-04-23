@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 // app-root {
 //   display: flex;
 //   height: 100vh;
@@ -64,18 +67,12 @@ html {
   height: 100%;
   /* needs to take the parents height, alternative: body {display: flex} */
   background-color: #f9fafc;
-  padding: 20px 0;
 }
 
 .btn:focus,
 .btn:active {
   outline: none !important;
   box-shadow: none;
-}
-
-.menu-container {
-  background-color: #f9fafc;
-  padding: 20px 0;
 }
 
 .menu {
@@ -122,5 +119,10 @@ html {
 //   padding-left: 15px
 // }
 input[type="text"] {
+  padding: 0px 15px;
+}
+
+.m-p {
+  margin: 15px 0px;
   padding: 0px 15px;
 }

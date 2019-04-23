@@ -10,6 +10,14 @@ const routes: Routes = [
     path: "register",
     loadChildren: "../app/modules/registration/register.module#RegisterModule"
   },
+  {
+    path: "login",
+    loadChildren: "../app/modules/login/login.module#LoginModule"
+  },
+  {
+    path: "dashboard",
+    loadChildren: "../app/modules/dashboard/dashboard.module#DashboardModule"
+  },
 ];
 
 @NgModule({

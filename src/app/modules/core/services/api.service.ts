@@ -14,11 +14,12 @@ export class ApiService {
       "Content-Type": "application/json",
       Accept: "application/json"
     };
-    var token = JSON.parse(localStorage.getItem("token"));
+    // var token = JSON.parse(localStorage.getItem("token"));
 
-    if (token !== "") {
-      headersConfig["Authorization"] = "Bearer " + token.access_token;
-    } else this.route.navigate(["/"]);
+    // if (token !== "") {
+    //   headersConfig["Authorization"] = "Bearer " + token.access_token;
+    // } else this.route.navigate(["/"]);
+    
     return new HttpHeaders(headersConfig);
   }
 
@@ -61,6 +62,15 @@ export class ApiService {
   post(path: string, body: Object = {}): Observable<any> {
     return this.http
       .post(`${environment.api_url}${path}`, JSON.stringify(body), {
+        headers: this.setHeaders()
+      })
+      .pipe(catchError(this.formatErrors));
+  }
+
+
+  sign(path: string, body: Object = {}): Observable<any> {
+    return this.http
+      .post(`${environment.login_url}${path}`, JSON.stringify(body), {
         headers: this.setHeaders()
       })
       .pipe(catchError(this.formatErrors));

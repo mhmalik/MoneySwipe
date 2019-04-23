@@ -7,13 +7,13 @@ import { CoreModule } from './modules/core';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CoreModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,26 @@
 import { NgModule } from "@angular/core";
 import { ApiService, InterceptService } from "./services";
-import { HttpClientModule } from '@angular/common/http';
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import {
+    MatFormFieldModule, MatIconModule, MatDialogModule,
+    MatInputModule, MatSnackBarModule
+} from "@angular/material";
+
+const materialModules = [
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatDialogModule
+];
 
 @NgModule({
     imports: [
+        FlexLayoutModule, materialModules,
         HttpClientModule,
-        FlexLayoutModule
     ],
-    exports: [ FlexLayoutModule],
+    exports: [FlexLayoutModule, materialModules],
     providers: [
         InterceptService,
         {

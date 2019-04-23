@@ -7,6 +7,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { CoreModule } from '../core';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxLoadingModule } from 'ngx-loading';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
@@ -15,9 +17,9 @@ import { NgxLoadingModule } from 'ngx-loading';
         RegisterRoutingModule,
         ReactiveFormsModule,
         FormsModule,
+        SharedModule,
         CoreModule,
-        NgxMaskModule.forRoot(),
-        NgxLoadingModule.forRoot({})
+        NgxMaskModule.forRoot()
     ],
     providers: [],
     declarations: [routedComponents, OneTimePasswordComponent, SignInComponent]

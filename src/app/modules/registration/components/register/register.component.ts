@@ -1,13 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { RegisterService } from '../../services';
-import { ngxLoadingAnimationTypes } from 'ngx-loading';
-import { RegisterModel } from '../../models/register.model';
-
-
-const PrimaryWhite = '#ffffff';
-const SecondaryGrey = '#ccc';
-const PrimaryRed = '#dd0031';
-const SecondaryBlue = '#006ddd';
+import { Router } from '@angular/router';
+import { RegisterModel } from '../../models';
+import { MatSnackBar } from '@angular/material';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -17,50 +13,51 @@ const SecondaryBlue = '#006ddd';
 export class RegisterComponent implements OnInit {
 
   mobileNo: any = "";
+  loading: boolean = false;
   registerObj: RegisterModel;
 
-  public ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
-  public loading = false;
-  public primaryColour = PrimaryWhite;
-  public secondaryColour = SecondaryGrey;
-  public coloursEnabled = false;
-  public loadingTemplate: TemplateRef<any>;
-  public config = { animationType: ngxLoadingAnimationTypes.doubleBounce, primaryColour: this.primaryColour, secondaryColour: this.secondaryColour, tertiaryColour: this.primaryColour, backdropBorderRadius: '3px' };
-
-  constructor(private _register_service: RegisterService) {
+  constructor(private _register_service: RegisterService,
+    private router: Router,
+    private _snack: MatSnackBar,
+  ) {
     this.registerObj = new RegisterModel();
-
   }
 
   ngOnInit() {
-    // this.loading = true;
-    // this._register_service.getUsers().subscribe(data => {
-    //   console.log(data);
-    //   this.loading = false;
-    // }, err => {
-    //   this.loading = false;
-    //   //...
-    // });
+    // this._register_service.getCountries().subscribe((res: any) => {
+    //   console.log(res);
+    // })
   }
 
   register() {
     this.loading = true;
     this.registerObj.CustomerID = "";
-    this.registerObj.CountryCode = "0092";
+    this.registerObj.CountryCode = environment.CountryCode;
     this.registerObj.CountryName = "PAK";
-    //this.registerObj.MobilePhone = this.mobileNo;
-    this.registerObj.MobilePhone = "3315699972";
+    this.registerObj.MobilePhone = this.mobileNo;
+    //this.registerObj.MobilePhone = "";
     this.registerObj.Device = "TEST";
     this.registerObj.OS = "Des";
 
     this._register_service.signUpUser(this.registerObj).subscribe(
       (data: any) => {
-        console.log(data);
         this.loading = false;
+        this.router.navigate(['/register/OTP', { 'mobile': this.registerObj.MobilePhone }]);
+        console.log(data);
       }, err => {
         this.loading = false;
+        console.log(err);
+        this._snack.open(err.split(":")[1], "", { //Invaid OTP
+          duration: 2000,
+          verticalPosition: "top",
+          panelClass: ['warn-snackbar']
+        });
         //...
       });
+  }
+
+  back() {
+    this.router.navigate(['/']);
   }
 
 }

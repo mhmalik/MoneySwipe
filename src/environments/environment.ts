@@ -5,8 +5,10 @@
 export const environment = {
   production: false,
 
-  api_url: 'http://172.19.4.205:3344/api/TempCustomer/',
-  login_url: 'https://apitest.atea.dk/TimeAppDev/services/',
+  // http://moneyswipeservice.azurewebsites.net/api/TempCustomer/SendOTP
+  api_url: 'http://moneyswipeservice.azurewebsites.net/api/TempCustomer/',
+  login_url: 'http://moneyswipeservice.azurewebsites.net/api/Customer/',
+  CountryCode: '+92'
 };
 
 /*

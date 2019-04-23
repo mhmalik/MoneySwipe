@@ -1,26 +1,88 @@
-<!-- 
-<div style="display: flex; flex-direction: column">
-  <img [src]="logo" alt="" class="logo">
+<app-loader [loading]="loading"></app-loader>
 
-  <div class="border">
-
-  </div>
-</div> -->
-
-<!-- <div class='menu-container'>
-  <div class='menu'>
-    <div class='date'>Aug 14, 2016</div>
-    <div class='links'>
-      <div class='signup'>Sign Up</div>
-      <div class='login'>Login</div>
+<div id="container" fxLayout="column" fxFill>
+  <header fxLayout fxLayoutAlign="space-between center" class="shadow" style="height: 50px;">
+    <div fxLayoutAlign="center center" style="background-color: rgb(198, 198, 198, 0); width: 50px;">
+      <i class="material-icons" style="font-size: 2.50rem" (click)="back()">chevron_left</i>
     </div>
-  </div>
-</div>
+    <div fxLayoutAlign="center center" style="height: 50px">
+      <img src="./assets/Logo.svg" style="width:48%">
+    </div>
+    <div fxLayoutAlign="center center" style="background-color: rgb(198, 198, 198, 0); width: 50px;">
+      <i class="material-icons">
+        help_outline
+      </i>
+    </div>
+  </header>
 
-<div class='header-container'>
-  <div class='header'>
-    <div class='subscribe'>Subscribe &#9662;</div>
-    <div class='logo'><img src='assets/awesome-logo.svg' /></div>
-    <div class='social'><img src='assets/social-icons.svg' /></div>
+  <div class=" mt-2" fxLayout fxLayoutAlign="center center">
+    <img src="./assets/AppLogo.svg" alt="" style="width : 50%" />
   </div>
-</div> -->
+
+  <div fxLayout="column" fxLayoutAlign="space-between center">
+    <div fxFill fxLayout="column" fxLayoutAlign="end center" fxFlex>
+      <div style="font-weight: bold; font-size: 13px">Enter the Pin you set while registration for login </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex=70 fxFill>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxFlex fxFill fxLayout="column"
+        fxLayoutAlign="start center">
+        <div fxLayout fxLayoutAlign="space-around start" fxFlex=10 fxFill class="p-3">
+
+          <div class="form-group">
+            <input #box type="text" id="1" (keyup)="moveOnMax(box, box1)" formControlName="pincode"
+              class="form-control" maxlength="1" inputmode="numeric" pattern="[0-9]*" digitOnly
+              [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }" />
+          </div>
+
+          <div class="form-group">
+            <input #box1 type="text" id="a" (keyup)="moveOnMax(box1,box2)" formControlName="pincode1"
+              class="form-control" maxlength="1" inputmode="numeric" pattern="[0-9]*" digitOnly
+              (keydown)="onKeydownEvent(box, $event)" [ngClass]="{ 'is-invalid': submitted && f.pincode1.errors }" />
+          </div>
+
+          <div class="form-group">
+            <input #box2 type="text" id="b" (keyup)="moveOnMax(box2, box3)" formControlName="pincode2"
+              class="form-control" maxlength="1" inputmode="numeric" pattern="[0-9]*" digitOnly
+              (keydown)="onKeydownEvent(box1, $event)" [ngClass]="{ 'is-invalid': submitted && f.pincode2.errors }" />
+          </div>
+
+          <div class="form-group">
+            <input #box3 type="text" id="c" (keydown)="onKeydownEvent(box2, $event)" formControlName="pincode3"
+              class="form-control" maxlength="1" inputmode="numeric" pattern="[0-9]*" digitOnly
+              [ngClass]="{ 'is-invalid': submitted && f.pincode3.errors }" />
+          </div>
+
+        </div>
+        <div class="m-p" fxFill>
+          <button class="btn btn-block btn-send" style="font-weight: bold" type="submit"
+            [disabled]="loading">Login</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <!-- <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex>
+    <div fxFill fxLayout="column" fxLayoutAlign="end center" fxFlex>
+      <div style="font-weight: bold; font-size: 13px">Enter the Pin you set while registration for login </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex=70 fxFill class="mt-2">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxFlex fxFill fxLayout="column" fxLayoutAlign="start center">
+        <div fxLayoutAlign="center center" fxFlex=40 class="shadow" style="width: 75%">
+          <mat-form-field style="font-size: x-large;">
+            <input type="tel" [hiddenInput]="true" matInput mask="XX XX XX" placeholder="Enter pin code"
+              formControlName="pincode" [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }" />
+          </mat-form-field>
+
+        </div>
+        <div fxLayout fxFlex=10 class="m-p" fxFill>
+          <button class="btn btn-block btn-send" style="font-weight: bold" type="submit"
+            [disabled]="loading">Login</button>
+        </div>
+      </form>
+
+    </div>
+  </div> -->
+
+</div>
